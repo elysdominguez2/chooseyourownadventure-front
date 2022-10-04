@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCities } from "../store/cities/thunks";
 import { selectCities } from "../store/cities/selectors";
 import { useEffect } from "react";
+import Button from "@mui/material/Button";
 
 function City() {
   const dispatch = useDispatch();
@@ -20,7 +21,9 @@ function City() {
         <div>
           {cities.map((city) => (
             <div key={city.id}>
-              <button>{city.name}</button>
+              <Button variant="contained" color="secondary">
+                {city.name}
+              </Button>
             </div>
           ))}
         </div>
