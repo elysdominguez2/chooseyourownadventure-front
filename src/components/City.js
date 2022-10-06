@@ -22,7 +22,7 @@ function City() {
         <div>
           {cities.map((city) => (
             <div key={city.id}>
-              <Link to={`/city`}>{city.name}</Link>
+              <Link to={`/city/${city.id}`}>{city.name}</Link>
               {/* <Button variant="contained" color="secondary">
                 {city.name}
               </Button> */}

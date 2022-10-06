@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cities: [],
+  cityDetails: {},
 };
 
 export const citiesSlice = createSlice({
@@ -15,8 +16,13 @@ export const citiesSlice = createSlice({
       state.loading = false;
       state.cities = action.payload;
     },
+    cityFetchedById: (state, action) => {
+      state.loading = false;
+      state.cityDetails = action.payload;
+    },
   },
 });
 
-export const { startLoading, citiesFetched } = citiesSlice.actions;
+export const { startLoading, citiesFetched, cityFetchedById } =
+  citiesSlice.actions;
 export default citiesSlice.reducer;
