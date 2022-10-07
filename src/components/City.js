@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function City() {
   const dispatch = useDispatch();
   const cities = useSelector(selectCities);
-  console.log("cities", cities);
+  //   console.log("cities", cities);
 
   useEffect(() => {
     dispatch(fetchCities());

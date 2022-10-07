@@ -21,7 +21,7 @@ export const fetchCitiesById = (id) => async (dispatch, getState) => {
   try {
     dispatch(startLoading());
     const response = await axios.get(`${API_URL}/city/${id}`);
-    console.log("response one city", response);
+    // console.log("response one city", response);
 
     const city = response.data;
     dispatch(cityFetchedById(city));

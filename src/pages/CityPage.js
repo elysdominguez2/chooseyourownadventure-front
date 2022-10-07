@@ -1,13 +1,15 @@
+import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesById } from "../store/cities/thunks";
 import { selectCityById } from "../store/cities/selectors";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Map from "../components/Map";
 
 export const CityPage = () => {
   const dispatch = useDispatch();
   const city = useSelector(selectCityById);
-  console.log("city ->", city);
+  //   console.log("city ->", city);
 
   const { id } = useParams();
 
@@ -24,6 +26,7 @@ export const CityPage = () => {
         location for the meeting
       </p>
       <p>MAP here</p>
+      <Map />
       <p>
         You and your friends arrive to this place but you can't find the guy.
       </p>
