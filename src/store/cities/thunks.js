@@ -20,8 +20,9 @@ export const fetchCities = () => async (dispatch, getState) => {
 export const fetchCitiesById = (id) => async (dispatch, getState) => {
   try {
     dispatch(startLoading());
+    console.log("About to call BE to get city id: " + id);
     const response = await axios.get(`${API_URL}/city/${id}`);
-    // console.log("response one city", response);
+    console.log("Response from BE for city id: " + id + ": " + response);
 
     const city = response.data;
     dispatch(cityFetchedById(city));
