@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesById } from "../store/cities/thunks";
 import { selectCityById } from "../store/cities/selectors";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Map from "../components/Map";
 
 export const CityPage = () => {
@@ -35,8 +35,8 @@ export const CityPage = () => {
             guy.
           </p>
           <p>So, you have to decide</p>
-          <button>call the guide</button>
-          <button>ask your money back</button>
+          <Link to="/guidecall">call the guide</Link>
+          <Link to="/guidecall">ask your money back</Link>
         </div>
       )}
     </div>
