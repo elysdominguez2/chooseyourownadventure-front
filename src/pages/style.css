@@ -1,3 +1,26 @@
 #map {
   height: 480px;
 }
+.container {
+  margin: 10px;
+}
+
+.container-guide-call {
+  background-image: url("../../public/images/phonecall.png");
+  background-size: cover;
+  background-position: center center;
+  height: 850px;
+}
+
+.title-call {
+  text-align: center;
+  padding-top: 150px;
+}
+.buttons-call {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button-call {
+  margin-top: 450px;
+}
