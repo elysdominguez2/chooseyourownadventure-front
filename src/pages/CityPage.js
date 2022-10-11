@@ -7,6 +7,9 @@ import { Link, useParams } from "react-router-dom";
 import useSound from "use-sound";
 import phoneCallSound from "../sounds/phonecall1.mp3";
 import Map from "../components/Map";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export const CityPage = () => {
   const dispatch = useDispatch();
@@ -18,8 +21,23 @@ export const CityPage = () => {
 
   const [call, setCall] = useState(false);
 
-  const toggleCall = () => {
+  const handleOpenAndCall = () => {
     setCall(!call);
+  };
+  //  const [open, setOpen] = useState(false);
+  //  const handleOpen = () => setOpen(true);
+  const handleClose = () => setCall(false);
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
   };
 
   useEffect(() => {
@@ -48,35 +66,40 @@ export const CityPage = () => {
           <button
             onClick={() => {
               play();
-              toggleCall();
+              // toggleCall();
+              handleOpenAndCall();
             }}
           >
             Call the guide
           </button>
-          {call && <p>This goes in the modal</p>}
-          {/* <Link to="/guidecall"><button>call the guide</Link> */}
+          {call && (
+            <div>
+              <Modal
+                open={call}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Text in a modal
+                  </Typography>
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    Duis mollis, est non commodo luctus, nisi erat porttitor
+                    ligula.
+                  </Typography>
+                </Box>
+              </Modal>
+            </div>
+          )}
+
           <Link to="/guidecall">ask your money back</Link>
-          {/* <label className="btn" for="modal-1">
-            Show me modal with a cat
-          </label> */}
         </div>
       )}
-      {/* <input class="modal-state" id="modal-1" type="checkbox" />
-      <div class="modal">
-        <label class="modal__bg" for="modal-1"></label>
-        <div class="modal__inner">
-          <label class="modal__close" for="modal-1"></label>
-          <h2>Caaaats FTW!</h2>
-          <p>
-            <img src="https://i.imgur.com/HnrkBwB.gif" alt="" />
-            Aliquam in sagittis nulla. Curabitur euismod diam eget risus
-            venenatis, sed dictum lectus bibendum. Nunc nunc nisi, hendrerit
-            eget nisi id, rhoncus rutrum velit. Nunc vel mauris dolor. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Aliquam fringilla quis nisi eget imperdiet.
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };
