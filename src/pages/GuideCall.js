@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 export const GuideCall = () => {
   const city = useSelector(selectCityById);
+
   return (
     <div className="container">
       <div className="container-guide-call">
@@ -26,3 +27,45 @@ export const GuideCall = () => {
     </div>
   );
 };
+
+//////
+// const DIV_MODAL_STYLE = {
+//   position: "fixed",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%,-50%)",
+//   backgroundColor: "#fff",
+//   borderRadius: "5px",
+//   padding: "40px",
+//   zIndex: 1000,
+// };
+// const DIV_OVERLAY_STYLE = {
+//   position: "fixed",
+//   top: 0,
+//   left: 0,
+//   right: 0,
+//   bottom: 0,
+//   backgroundColor: "rgba(0,0,0,.3)",
+//   zIndex: 1000,
+// };
+
+// function AddReview({ children, open, close, updateComment }) {
+
+//   if (!open) return null;
+
+//   return (
+//     <>
+//       <div style={DIV_OVERLAY_STYLE} />
+//       <div style={DIV_MODAL_STYLE}>
+//         <div className="form-container">
+//           <button onClick={close} className="button-close">
+//             x
+//           </button>
+//          <p>Hello</p>
+
+//         </div>
+//         {children}
+//       </div>
+//     </>
+//   );
+// }
