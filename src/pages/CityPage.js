@@ -9,7 +9,8 @@ import phoneCallSound from "../sounds/phonecall1.mp3";
 import Map from "../components/Map";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { ImPhoneHangUp } from "react-icons/im";
+import { ImPhone } from "react-icons/im";
 
 export const CityPage = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,7 @@ export const CityPage = () => {
   const handleOpenAndCall = () => {
     setCall(!call);
   };
-  //  const [open, setOpen] = useState(false);
-  //  const handleOpen = () => setOpen(true);
+
   const handleClose = () => setCall(false);
 
   const style = {
@@ -33,7 +33,7 @@ export const CityPage = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 700,
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -66,7 +66,6 @@ export const CityPage = () => {
           <button
             onClick={() => {
               play();
-              // toggleCall();
               handleOpenAndCall();
             }}
           >
@@ -81,17 +80,23 @@ export const CityPage = () => {
                 aria-describedby="modal-modal-description"
               >
                 <Box sx={style}>
-                  <Typography
-                    id="modal-modal-title"
-                    variant="h6"
-                    component="h2"
-                  >
-                    Text in a modal
-                  </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor
-                    ligula.
-                  </Typography>
+                  <div className="container">
+                    <div className="container-guide-call">
+                      <h3 className="title-call">{city.name} Guide</h3>
+                      <div className="buttons-call">
+                        <button className="button-call red">
+                          <p className="icone-phone">
+                            <ImPhoneHangUp />
+                          </p>
+                        </button>
+                        <button className="button-call green">
+                          <p className="icone-phone">
+                            <ImPhone />
+                          </p>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </Box>
               </Modal>
             </div>
