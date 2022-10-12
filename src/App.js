@@ -11,6 +11,7 @@ import {
   CityPage,
   NeighbourhoodPage,
   NeighbourhoodPageById,
+  PointsOfInterest,
 } from "./pages";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/city/:id" element={<CityPage />} />
         <Route path="/neighbourhood" element={<NeighbourhoodPage />} />
         <Route path="/neighbourhood/:id" element={<NeighbourhoodPageById />} />
+        <Route path="/pointsofinterest" element={<PointsOfInterest />} />
       </Routes>
     </div>
   );
