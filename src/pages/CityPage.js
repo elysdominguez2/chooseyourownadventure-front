@@ -84,16 +84,16 @@ export const CityPage = () => {
                     <div className="container-guide-call">
                       <h3 className="title-call">{city.name} Guide</h3>
                       <div className="buttons-call">
-                        <button className="button-call red">
+                        <Link to="/neighbourhood" className="button-call red">
                           <p className="icone-phone">
                             <ImPhoneHangUp />
                           </p>
-                        </button>
-                        <button className="button-call green">
+                        </Link>
+                        <Link to="" className="button-call green">
                           <p className="icone-phone">
                             <ImPhone />
                           </p>
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export const CityPage = () => {
             </div>
           )}
 
-          <Link to="/guidecall">ask your money back</Link>
+          <Link to="/">ask your money back</Link>
         </div>
       )}
     </div>
