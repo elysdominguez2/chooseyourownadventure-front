@@ -4,7 +4,14 @@ import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/thunks";
 import { Routes, Route } from "react-router-dom";
 import { Navigation, MessageBox } from "./components";
-import { Homepage, Login, SignUp, CityPage, NeighbourhoodPage } from "./pages";
+import {
+  Homepage,
+  Login,
+  SignUp,
+  CityPage,
+  NeighbourhoodPage,
+  NeighbourhoodPageById,
+} from "./pages";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/city/:id" element={<CityPage />} />
         <Route path="/neighbourhood" element={<NeighbourhoodPage />} />
+        <Route path="/neighbourhood/:id" element={<NeighbourhoodPageById />} />
       </Routes>
     </div>
   );
