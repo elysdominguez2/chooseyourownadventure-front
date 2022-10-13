@@ -40,6 +40,14 @@ export const CityPage = () => {
     p: 4,
   };
 
+  const [route, setRoute] = useState(id);
+  useEffect(() => {
+    localStorage.setItem(
+      "iternary",
+      JSON.stringify({ city: route, steps: [] })
+    );
+  }, [route]);
+
   useEffect(() => {
     dispatch(fetchCitiesById(id));
   }, [dispatch, id]);

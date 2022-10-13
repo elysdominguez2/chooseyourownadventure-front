@@ -53,3 +53,9 @@
   color: white;
 }
 /* END GUIDE CALL PAGE */
+
+.nb-box {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}

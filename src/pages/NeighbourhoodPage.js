@@ -5,8 +5,8 @@ import { selectCityById } from "../store/cities/selectors";
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import { TbArrowBigLeft } from "react-icons/tb";
-import { TbArrowBigRight } from "react-icons/tb";
+// import { TbArrowBigLeft } from "react-icons/tb";
+// import { TbArrowBigRight } from "react-icons/tb";
 
 export const NeighbourhoodPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const NeighbourhoodPage = () => {
         Now you are responsible to have a good adventure with your friends and
         you have to decide:
       </p>
-      <p>
+      {/* <p>
         <TbArrowBigLeft />
         <TbArrowBigRight />
       </p>
@@ -34,16 +34,17 @@ export const NeighbourhoodPage = () => {
       <p>
         Or you can go to see the famous Red Lights district and discover why
         Amsterdam is so unique
-      </p>
+      </p> */}
 
       {city === null ? (
         "Loading..."
       ) : (
         <div>
           {city.neighbourhoods.map((n) => (
-            <div key={n.id}>
+            <div className="nb-box" key={n.id}>
+              <h3>{n.name}</h3>
               <img src={n.imageUrl} alt="" width="500" />
-              <Link to={`/neighbourhood/${n.id}`}>{n.name}</Link>
+              <Link to={`/neighbourhood/${n.id}`}>Go to {n.name}</Link>
             </div>
           ))}
         </div>

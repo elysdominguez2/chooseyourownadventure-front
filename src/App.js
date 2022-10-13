@@ -32,7 +32,10 @@ function App() {
         <Route path="/city/:id" element={<CityPage />} />
         <Route path="/neighbourhood" element={<NeighbourhoodPage />} />
         <Route path="/neighbourhood/:id" element={<NeighbourhoodPageById />} />
-        <Route path="/pointsofinterest" element={<PointsOfInterest />} />
+        <Route
+          path="/pointsofinterest/:nb_id/:poi_id"
+          element={<PointsOfInterest />}
+        />
       </Routes>
     </div>
   );

@@ -9,10 +9,9 @@ import { TbArrowBigRight } from "react-icons/tb";
 
 export const NeighbourhoodPageById = () => {
   const dispatch = useDispatch();
-  const neighbourhood = useSelector(selectNeighbourhoodyById);
-  //   console.log("here is this neigh", neighbourhood);
-
   const { id } = useParams();
+  const neighbourhood = useSelector(selectNeighbourhoodyById(id));
+  console.log("here is this neigh", neighbourhood);
 
   useEffect(() => {
     dispatch(fetchNeighbourhoodsById(id));
@@ -29,9 +28,15 @@ export const NeighbourhoodPageById = () => {
           <Map lat={neighbourhood.lat} lon={neighbourhood.lon} />
           <p>{neighbourhood.description}</p>
 
-          <Link to={`/pointsofinterest`}>
-            <TbArrowBigRight />
-          </Link>
+          <h3>What point of interest would you like to visit</h3>
+          {neighbourhood.pointsOfInterests.map((poi) => {
+            return (
+              <Link to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}>
+                {poi.name}
+                <TbArrowBigRight />
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
