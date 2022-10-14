@@ -12,6 +12,7 @@ import {
   NeighbourhoodPage,
   NeighbourhoodPageById,
   PointsOfInterest,
+  EndAndSharePage,
 } from "./pages";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           path="/pointsofinterest/:nb_id/:poi_id"
           element={<PointsOfInterest />}
         />
+        <Route path="/endandshare" element={<EndAndSharePage />} />
       </Routes>
     </div>
   );
