@@ -34,9 +34,11 @@ function Start() {
         </p>
       </div>
       <div>
-        {token
-          ? ("Now you can start the adventure", (<City />))
-          : ("Debes loguerte", (<Link to="/login">Login to start</Link>))}
+        {token ? (
+          ("Now you can start the adventure", (<City />))
+        ) : (
+          <Link to="/login">Login to start</Link>
+        )}
       </div>
     </div>
   );
