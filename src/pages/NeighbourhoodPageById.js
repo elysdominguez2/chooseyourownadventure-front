@@ -31,7 +31,10 @@ export const NeighbourhoodPageById = () => {
           <h3>What point of interest would you like to visit</h3>
           {neighbourhood.pointsOfInterests.map((poi) => {
             return (
-              <Link to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}>
+              <Link
+                key={poi.id}
+                to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
+              >
                 {poi.name}
                 <TbArrowBigRight />
               </Link>
