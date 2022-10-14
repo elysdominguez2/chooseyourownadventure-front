@@ -63,6 +63,7 @@ export const PointsOfInterest = () => {
             )}
           </div>
           <Link to={`/neighbourhood`}>Go to another neighboorhood</Link>
+          <Link to={`/endandshare`}>I want to finish my itinerary</Link>
         </div>
       )}
     </div>
