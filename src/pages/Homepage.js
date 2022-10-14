@@ -1,15 +1,9 @@
-import styled from "styled-components";
-
 import Start from "../components/Start";
 
 export const Homepage = () => {
   return (
-    <Container>
+    <div className="container mx-auto px-20">
       <Start />
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  margin: 20px;
-`;
