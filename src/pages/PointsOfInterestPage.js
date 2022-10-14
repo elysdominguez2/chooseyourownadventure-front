@@ -14,11 +14,11 @@ export const PointsOfInterest = () => {
   const neighbourhood = useSelector(selectNeighbourhoodyById(nb_id));
 
   useEffect(() => {
-    const iternary = localStorage.getItem("iternary");
+    const iternary = localStorage.getItem("itinerary");
     if (iternary) {
       const current = JSON.parse(iternary);
       localStorage.setItem(
-        "iternary",
+        "itinerary",
         JSON.stringify({
           ...current,
           steps: [...current.steps, { poi: poi_id, nb: nb_id }],
@@ -26,12 +26,12 @@ export const PointsOfInterest = () => {
       );
     }
   }, [nb_id, poi_id]);
-  let info = localStorage.getItem("iternary");
-  console.log("Esto es info", info);
+  //   let info = localStorage.getItem("iternary");
+  //   console.log("Esto es info", info);
   return (
     <div>
       {/* Agregue este info para ver como se imprimia en pantalla */}
-      {info}
+      {/* {info} */}
       {poi === null ? (
         "Loading..."
       ) : (
@@ -66,21 +66,5 @@ export const PointsOfInterest = () => {
         </div>
       )}
     </div>
-
-    // <div>
-    //   <p>
-    //     This place is amazing, no? But your friends are looking at you and
-    //     wondering what is next.
-    //   </p>
-    //   <p>You have to decide now</p>
-
-    //   <p>
-    //     Do you have an Instagramer side? So you can take the most popular
-    //     pictures here
-    //   </p>
-    //   <button>I am an instagramer, baby</button>
-    //   <p>Did you live a lot of lives and love antiques? Go for it!</p>
-    //   <button>I have an old soul</button>
-    // </div>
   );
 };

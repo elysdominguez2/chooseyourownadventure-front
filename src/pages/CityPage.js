@@ -43,7 +43,7 @@ export const CityPage = () => {
   const [route, setRoute] = useState(id);
   useEffect(() => {
     localStorage.setItem(
-      "iternary",
+      "itinerary",
       JSON.stringify({ city: route, steps: [] })
     );
   }, [route]);
