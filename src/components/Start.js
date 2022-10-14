@@ -2,9 +2,13 @@ import { FaCity } from "react-icons/fa";
 import { GiThreeFriends } from "react-icons/gi";
 import { MdLocationOn } from "react-icons/md";
 import { BsCameraFill } from "react-icons/bs";
-import Button from "@mui/material/Button";
+import { useSelector } from "react-redux";
+import { selectToken } from "../store/user/selectors";
+import { Link } from "react-router-dom";
+import City from "../components/City";
 
 function Start() {
+  const token = useSelector(selectToken);
   return (
     <div>
       <h2>Choose your own Adventure</h2>
@@ -30,10 +34,9 @@ function Start() {
         </p>
       </div>
       <div>
-        <input></input>
-        <Button variant="contained" color="secondary">
-          Start an Adventure
-        </Button>
+        {token
+          ? ("Now you can start the adventure", (<City />))
+          : ("Debes loguerte", (<Link to="/login">Login to start</Link>))}
       </div>
     </div>
   );
