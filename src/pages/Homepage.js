@@ -2,7 +2,7 @@ import Start from "../components/Start";
 
 export const Homepage = () => {
   return (
-    <div className="container mx-auto px-20">
+    <div className="mx-auto px-20 bg-cover bg-gradient-to-b from-white to-cust-light-blue">
       <Start />
     </div>
   );
