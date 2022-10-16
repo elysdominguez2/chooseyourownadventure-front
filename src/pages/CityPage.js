@@ -40,7 +40,7 @@ export const CityPage = () => {
     p: 4,
   };
 
-  const [route, setRoute] = useState(id);
+  const [route] = useState(id);
   useEffect(() => {
     localStorage.setItem(
       "itinerary",
@@ -53,18 +53,19 @@ export const CityPage = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className="text-xl py-3 text-center text-cust-dark-purple">
       {city === null ? (
         "Loading..."
       ) : (
         <div>
-          <h1>{city.name}</h1>
+          <h2 className="text-4xl py-10 font-Lato font-semibold text-yellow-500 uppercase drop-shadow-lg shadow-cust-dark-purple">
+            {city.name}
+          </h2>
           <p>{city.description}</p>
           <p>
             You are going to start your tourist ride and the guide send you this
             location for the meeting
           </p>
-          <p>MAP here</p>
           <Map lat={city.lat} lon={city.lon} />
           <p>
             You and your friends arrive to this place but you can't find the
@@ -76,6 +77,7 @@ export const CityPage = () => {
               play();
               handleOpenAndCall();
             }}
+            className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg py-2 px-4 my-10 rounded uppercase"
           >
             Call the guide
           </button>
@@ -109,8 +111,13 @@ export const CityPage = () => {
               </Modal>
             </div>
           )}
-
-          <Link to="/">ask your money back</Link>
+          <br />
+          <Link
+            to="/"
+            className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg py-3  px-4 rounded uppercase"
+          >
+            Ask your money back
+          </Link>
         </div>
       )}
     </div>
