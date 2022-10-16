@@ -78,13 +78,6 @@ function Start() {
           </div>
         )}
       </div>
-      {/* <div>
-        {token ? (
-          <img src={imageCity} alt="" className="w-50"></img>
-        ) : (
-          <img src={imageHi} alt="" className="w-50"></img>
-        )}
-      </div> */}
     </div>
   );
 }
