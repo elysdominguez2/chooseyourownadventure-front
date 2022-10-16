@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCities } from "../store/cities/thunks";
 import { selectCities } from "../store/cities/selectors";
 import { useEffect } from "react";
-// import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 function City() {
@@ -15,7 +14,9 @@ function City() {
   }, [dispatch]);
   return (
     <div>
-      <h3>Choose the city that you want to visit</h3>
+      <h3 className="text-2xl pb-3 font-Lato font-semibold text-cust-dark-purple">
+        Choose the city that you want to visit
+      </h3>
       {!cities.length ? (
         "Loading"
       ) : (
@@ -23,9 +24,6 @@ function City() {
           {cities.map((city) => (
             <div key={city.id}>
               <Link to={`/city/${city.id}`}>{city.name}</Link>
-              {/* <Button variant="contained" color="secondary">
-                {city.name}
-              </Button> */}
             </div>
           ))}
         </div>
