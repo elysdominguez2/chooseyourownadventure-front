@@ -5,10 +5,12 @@ module.exports = {
     extend: {
       colors: {
         "cust-purple": "#d8b5ce",
+        "cust-dark-purple": "#7C2F9B",
         "cust-yellow": "#f4d92c",
         "cust-red": "#fb3e35",
         "cust-light-blue": "#CEF3EB",
         "cust-aqua": "#42C4CC",
+        "cust-orange": "#F89864",
       },
       fontFamily: {
         Amatic: ["Amatic SC", "cursive"],
