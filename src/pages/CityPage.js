@@ -83,7 +83,7 @@ export const CityPage = () => {
           </button>
           {call && (
             <div>
-              <Modal
+              {/* <Modal
                 open={call}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -108,7 +108,28 @@ export const CityPage = () => {
                     </div>
                   </div>
                 </Box>
-              </Modal>
+              </Modal> */}
+
+              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative  ">
+                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-96 h-screen bg-white outline-none focus:outline-none justify-center">
+                    <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b bg-phone bg-cover object-cover bg-center h-fit w-full  ">
+                      <h3 className="title-call">{city.name} Guide</h3>
+                      <Link to="/neighbourhood" className="button-call red">
+                        <p className="icone-phone">
+                          <ImPhoneHangUp />
+                        </p>
+                      </Link>
+                      <Link to="" className="button-call green">
+                        <p className="icone-phone">
+                          <ImPhone />
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* FINNNNN */}
             </div>
           )}
           <br />

@@ -19,7 +19,7 @@ module.exports = {
         Lato: ["Lato", "sans-serif"],
       },
       backgroundImage: {
-        "book-cover": "url('/public/images/balloon.png')",
+        phone: "url('/public/images/phonecall.png')",
       },
     },
   },
