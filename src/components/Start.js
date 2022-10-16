@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 import { selectToken } from "../store/user/selectors";
 import { Link } from "react-router-dom";
 import City from "../components/City";
-import image from "../img/Luke-hi.png";
+import imageHi from "../img/Luke-hi.png";
+import imageCity from "../img/Luke-city.png";
 
 function Start() {
   const token = useSelector(selectToken);
@@ -79,7 +80,11 @@ function Start() {
           )}
         </div>
         <div>
-          <img src={image} alt="" className="w-50"></img>
+          {token ? (
+            <img src={imageCity} alt="" className="w-50"></img>
+          ) : (
+            <img src={imageHi} alt="" className="w-50"></img>
+          )}
         </div>
       </div>
     </div>
