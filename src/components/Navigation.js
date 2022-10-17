@@ -1,10 +1,10 @@
-import styled from "styled-components";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../store/user/selectors";
 import { logOut } from "../store/user/slice";
 import { Link } from "react-router-dom";
 import { BiTrip } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -14,96 +14,54 @@ export const Navigation = () => {
   const token = useSelector(selectToken);
 
   return (
-    <Nav>
-      <Logo href="/">
-        <BiTrip />
-      </Logo>
-      <Hamburger onClick={() => setOpen(!open)}>
-        <span />
-        <span />
-        <span />
-      </Hamburger>
-      <Menu open={open}>
-        <MenuLink to="/empty1">Empty 1</MenuLink>
-        <MenuLink to="/empty2">Empty 2</MenuLink>
-        {token ? (
-          <button onClick={() => dispatch(logOut())}>Logout</button>
-        ) : (
-          <MenuLink to="/login">Login</MenuLink>
-        )}
-      </Menu>
-    </Nav>
+    <div>
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-cust-aqua mb-3">
+        <div className="container  px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <p className="px-3 py-2 flex items-center text-3xl uppercase font-bold leading-snug text-white hover:opacity-75 drop-shadow-lg shadow-black">
+              <Link to="/">
+                <BiTrip />
+              </Link>
+            </p>
+
+            <button
+              className="text-white cursor-pointer text-2xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none drop-shadow-lg shadow-black"
+              type="button"
+              onClick={() => setOpen(!open)}
+            >
+              <GiHamburgerMenu />
+            </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center" + (open ? " flex" : " hidden")
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 drop-shadow-lg shadow-black">
+                  <Link to="/empty1">Empty 1</Link>
+                </p>
+              </li>
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 drop-shadow-lg shadow-black">
+                  <Link to="/empty2">Empty 2</Link>
+                </p>
+              </li>
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 drop-shadow-lg shadow-black">
+                  {token ? (
+                    <button onClick={() => dispatch(logOut())}>Logout</button>
+                  ) : (
+                    <Link to="/login">Login</Link>
+                  )}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
-
-const MenuLink = styled(Link)`
-  padding: 1rem 2rem;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  color: #ececec;
-  transition: all 0.3s ease-in;
-  font-size: 0.9rem;
-
-  &:hover {
-    color: #9cc094;
-  }
-`;
-
-const Nav = styled.div`
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  background: #b22727;
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  right: 0;
-`;
-
-const Logo = styled.a`
-  padding: 1rem 0;
-  color: #ececec;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.7rem;
-
-  span {
-    font-weight: 300;
-    font-size: 1.3rem;
-  }
-`;
-
-const Hamburger = styled.div`
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  span {
-    height: 2px;
-    width: 25px;
-    background-color: #ececec;
-    margin-bottom: 4px;
-    border-radius: 5px;
-  }
-
-  @media (max-width: 780px) {
-    display: flex;
-  }
-`;
-
-const Menu = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-
-  @media (max-width: 780px) {
-    overflow: hidden;
-    flex-direction: column;
-    width: 100%;
-    max-height: ${({ open }) => (open ? "300px" : "0")};
-    transition: max-height 0.3s ease-in;
-  }
-`;

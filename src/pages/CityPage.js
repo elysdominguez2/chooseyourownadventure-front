@@ -40,7 +40,7 @@ export const CityPage = () => {
     p: 4,
   };
 
-  const [route, setRoute] = useState(id);
+  const [route] = useState(id);
   useEffect(() => {
     localStorage.setItem(
       "itinerary",
@@ -53,18 +53,19 @@ export const CityPage = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className="text-xl py-3 text-center text-cust-dark-purple">
       {city === null ? (
         "Loading..."
       ) : (
         <div>
-          <h1>{city.name}</h1>
+          <h2 className="text-4xl py-10 font-Lato font-semibold text-yellow-500 uppercase drop-shadow-lg shadow-cust-dark-purple">
+            {city.name}
+          </h2>
           <p>{city.description}</p>
           <p>
             You are going to start your tourist ride and the guide send you this
             location for the meeting
           </p>
-          <p>MAP here</p>
           <Map lat={city.lat} lon={city.lon} />
           <p>
             You and your friends arrive to this place but you can't find the
@@ -76,12 +77,13 @@ export const CityPage = () => {
               play();
               handleOpenAndCall();
             }}
+            className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg py-2 px-4 my-10 rounded uppercase"
           >
             Call the guide
           </button>
           {call && (
             <div>
-              <Modal
+              {/* <Modal
                 open={call}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -106,11 +108,37 @@ export const CityPage = () => {
                     </div>
                   </div>
                 </Box>
-              </Modal>
+              </Modal> */}
+
+              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative  ">
+                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-96 h-screen bg-white outline-none focus:outline-none justify-center">
+                    <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b bg-phone bg-cover object-cover bg-center h-fit w-full  ">
+                      <h3 className="title-call">{city.name} Guide</h3>
+                      <Link to="/neighbourhood" className="button-call red">
+                        <p className="icone-phone">
+                          <ImPhoneHangUp />
+                        </p>
+                      </Link>
+                      <Link to="" className="button-call green">
+                        <p className="icone-phone">
+                          <ImPhone />
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* FINNNNN */}
             </div>
           )}
-
-          <Link to="/">ask your money back</Link>
+          <br />
+          <Link
+            to="/"
+            className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg py-3  px-4 rounded uppercase"
+          >
+            Ask your money back
+          </Link>
         </div>
       )}
     </div>

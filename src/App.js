@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/thunks";
@@ -23,7 +24,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="h-screen bg-cover bg-gradient-to-b from-white to-cust-light-blue">
       <Navigation />
       <MessageBox />
       <Routes>
