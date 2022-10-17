@@ -14,9 +14,9 @@ export const PointsOfInterest = () => {
   const neighbourhood = useSelector(selectNeighbourhoodyById(nb_id));
 
   useEffect(() => {
-    const iternary = localStorage.getItem("itinerary");
-    if (iternary) {
-      const current = JSON.parse(iternary);
+    const itinerary = localStorage.getItem("itinerary");
+    if (itinerary) {
+      const current = JSON.parse(itinerary);
       localStorage.setItem(
         "itinerary",
         JSON.stringify({
@@ -26,12 +26,10 @@ export const PointsOfInterest = () => {
       );
     }
   }, [nb_id, poi_id]);
-  //   let info = localStorage.getItem("iternary");
-  //   console.log("Esto es info", info);
+  let info = localStorage.getItem("itinerary");
+  console.log("Esto es info", info);
   return (
     <div>
-      {/* Agregue este info para ver como se imprimia en pantalla */}
-      {/* {info} */}
       {poi === null ? (
         "Loading..."
       ) : (

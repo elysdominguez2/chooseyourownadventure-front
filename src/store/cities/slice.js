@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cities: [],
   cityDetails: null,
+  journeyInfo: null,
 };
 
 export const citiesSlice = createSlice({
@@ -20,9 +21,16 @@ export const citiesSlice = createSlice({
       state.loading = false;
       state.cityDetails = action.payload;
     },
+    journeyInfoFetched: (state, action) => {
+      state.journeyInfo = action.payload;
+    },
   },
 });
 
-export const { startLoading, citiesFetched, cityFetchedById } =
-  citiesSlice.actions;
+export const {
+  startLoading,
+  citiesFetched,
+  cityFetchedById,
+  journeyInfoFetched,
+} = citiesSlice.actions;
 export default citiesSlice.reducer;
