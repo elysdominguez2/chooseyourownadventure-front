@@ -7,6 +7,7 @@ import {
 import Map from "../components/Map";
 import { TbArrowBigRight } from "react-icons/tb";
 import { useEffect } from "react";
+import imagePosition from "../img/Luke-position.png";
 
 export const PointsOfInterest = () => {
   const { nb_id, poi_id } = useParams();
@@ -29,42 +30,78 @@ export const PointsOfInterest = () => {
   let info = localStorage.getItem("itinerary");
   console.log("Esto es info", info);
   return (
-    <div>
+    <div className="text-xl py-3 p-10 text-cust-dark-purple max-w-4xl m-auto">
       {poi === null ? (
         "Loading..."
       ) : (
         <div>
-          <h3>{poi.name}</h3>
-          <img src={poi.imageUrl} alt="" width="200" />
-          <p>Now go directly to this point of the map </p>
-          <Map lat={poi.lat} lon={poi.lon} />
-          <p>{poi.description}</p>
-          <br />
-          <p>
-            This place is amazing, no? But your friends are looking at you and
-            wondering what is next.
-          </p>
-          <p>You have to decide now</p>
-          <div>
-            <h3>Go to the next Points Of Interest</h3>
-            {neighbourhood ? (
-              neighbourhood.pointsOfInterests.map((poi) => {
-                return (
-                  <Link
-                    key={poi.id}
-                    to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
-                  >
-                    {poi.name}
-                    <TbArrowBigRight />
-                  </Link>
-                );
-              })
-            ) : (
-              <p>loading</p>
-            )}
+          <div className="flex flex-col items-center">
+            <h3 className="text-2xl py-10 font-Lato font-semibold text-yellow-500 uppercase drop-shadow-lg shadow-cust-dark-purple">
+              {poi.name}
+            </h3>
+            <img
+              src={poi.imageUrl}
+              alt=""
+              width="350"
+              className="mb-10 drop-shadow-lg  shadow-cust-dark-purple p-4 bg-white"
+            />
+            <p>Now go directly to this point of the map </p>
           </div>
-          <Link to={`/neighbourhood`}>Go to another neighboorhood</Link>
-          <Link to={`/endandshare`}>I want to finish my itinerary</Link>
+          <Map lat={poi.lat} lon={poi.lon} />
+          <p className=" text-center p-6">{poi.description}</p>
+          <br />
+
+          <div className="flex">
+            <div>
+              <p>This place is amazing, no?</p>
+              <p>
+                But your friends are looking at you and wondering what is next.
+              </p>
+              <p>You have to decide now</p>
+              <div>
+                <h3 className="my-4 uppercase">
+                  Go to the next Points Of Interest
+                </h3>
+                {neighbourhood ? (
+                  neighbourhood.pointsOfInterests.map((poi) => {
+                    return (
+                      <Link
+                        key={poi.id}
+                        to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
+                        className="transition ease-in-out delay-150 text-xl px-4 py-2 uppercase text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
+                      >
+                        <p className="mr-4 text-4xl">
+                          <TbArrowBigRight />
+                        </p>
+                        {poi.name}
+                      </Link>
+                    );
+                  })
+                ) : (
+                  <p>loading</p>
+                )}
+
+                <Link
+                  to={`/neighbourhood`}
+                  className="transition ease-in-out delay-150 text-xl px-4 py-2 uppercase text-green-600 hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
+                >
+                  <p className="mr-4 text-4xl">
+                    <TbArrowBigRight />
+                  </p>
+                  Go to another neighboorhood
+                </Link>
+              </div>
+            </div>
+            <img src={imagePosition} alt="" className="w-72"></img>
+          </div>
+          <div className="ml-6 mt-10">
+            <Link
+              to={`/endandshare`}
+              className=" bg-red-500 hover:bg-red-400 border-b-4 border-red-700 hover:border-red-500 text-white text-center text-xl py-2 px-4 rounded"
+            >
+              I want to finish my itinerary
+            </Link>
+          </div>
         </div>
       )}
     </div>
