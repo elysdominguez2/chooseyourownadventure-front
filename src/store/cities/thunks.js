@@ -40,21 +40,29 @@ export const fetchCitiesById = (id) => async (dispatch, getState) => {
 export const fetchJourneyInfo =
   (itineraryInput) => async (dispatch, getState) => {
     const itinerary = JSON.parse(itineraryInput);
+    console.log("itinerary", itinerary);
+    dispatch(fetchCitiesById(itinerary.city));
 
-    const cityDetails = selectCityById(getState());
-    const pointsOfInterests = itinerary.steps.map((step) => {
-      return selectPoiByNbAndPoiId(cityDetails, step.nb, step.poi);
-    });
+    setTimeout(() => {
+      const cityDetails = selectCityById(getState());
+      console.log("this city", cityDetails);
 
-    const journeyInfo = {
-      cityDetails: cityDetails,
-      pointsOfInterests: pointsOfInterests,
-    };
+      const pointsOfInterests = itinerary.steps.map((step) => {
+        return selectPoiByNbAndPoiId(cityDetails, step.nb, step.poi);
+      });
 
-    dispatch(journeyInfoFetched(journeyInfo));
+      const journeyInfo = {
+        cityDetails: cityDetails,
+        pointsOfInterests: pointsOfInterests,
+      };
+
+      dispatch(journeyInfoFetched(journeyInfo));
+    }, 1000);
   };
 
 const selectPoiByNbAndPoiId = (cityDetails, nb_id, poi_id) => {
-  const nb = cityDetails.neighbourhoods.find((nb) => nb.id === parseInt(nb_id));
-  return nb.pointsOfInterests.find((poi) => poi.id === parseInt(poi_id));
+  const nb = cityDetails?.neighbourhoods?.find(
+    (nb) => nb.id === parseInt(nb_id)
+  );
+  return nb?.pointsOfInterests.find((poi) => poi.id === parseInt(poi_id));
 };

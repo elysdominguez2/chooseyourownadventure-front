@@ -15,16 +15,22 @@ import {
   PointsOfInterest,
   EndAndSharePage,
 } from "./pages";
+import { fetchCitiesById } from "./store/cities/thunks";
 
 function App() {
   const dispatch = useDispatch();
 
+  const idFromLocalStorage = localStorage.getItem("itinerary");
+  const parsed = JSON.parse(idFromLocalStorage);
+  const id = parseInt(parsed.city);
+
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    // dispatch(fetchCitiesById(id));
   }, [dispatch]);
 
   return (
-    <div className="h-screen bg-cover bg-gradient-to-b from-white to-cust-light-blue">
+    <div className="max-h-fit bg-cover bg-gradient-to-b from-white to-cust-light-blue pb-20">
       <Navigation />
       <MessageBox />
       <Routes>

@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesById } from "../store/cities/thunks";
 import { selectCityById } from "../store/cities/selectors";
@@ -7,10 +7,10 @@ import { Link, useParams } from "react-router-dom";
 import useSound from "use-sound";
 import phoneCallSound from "../sounds/phonecall1.mp3";
 import Map from "../components/Map";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
+
 import { ImPhoneHangUp } from "react-icons/im";
 import { ImPhone } from "react-icons/im";
+import imagePhone from "../img/phonecall.png";
 
 export const CityPage = () => {
   const dispatch = useDispatch();
@@ -62,12 +62,12 @@ export const CityPage = () => {
             {city.name}
           </h2>
           <p>{city.description}</p>
-          <p>
+          <p className="px-10">
             You are going to start your tourist ride and the guide send you this
             location for the meeting
           </p>
           <Map lat={city.lat} lon={city.lon} />
-          <p>
+          <p className="px-10">
             You and your friends arrive to this place but you can't find the
             guy.
           </p>
@@ -83,53 +83,30 @@ export const CityPage = () => {
           </button>
           {call && (
             <div>
-              {/* <Modal
-                open={call}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <div className="container">
-                    <div className="container-guide-call">
-                      <h3 className="title-call">{city.name} Guide</h3>
-                      <div className="buttons-call">
-                        <Link to="/neighbourhood" className="button-call red">
-                          <p className="icone-phone">
+              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative  ">
+                  <div className="border-0 rounded-lg shadow-lg relative w-96 bg-white outline-none focus:outline-none justify-center">
+                    <div className=" p-6 border-t border-solid border-blueGray-200 rounded-b  ">
+                      <h3 className="title-call absolute text-white uppercase">
+                        {city.name} Guide
+                      </h3>
+                      <div className="flex absolute">
+                        <Link to="/neighbourhood">
+                          <p className="icone-phone rounded-full p-5 bg-red-500 text-white">
                             <ImPhoneHangUp />
                           </p>
                         </Link>
-                        <Link to="" className="button-call green">
-                          <p className="icone-phone">
+                        <Link to="">
+                          <p className="icone-phone rounded-full p-5 bg-green-600 text-white">
                             <ImPhone />
                           </p>
                         </Link>
                       </div>
-                    </div>
-                  </div>
-                </Box>
-              </Modal> */}
-
-              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                <div className="relative  ">
-                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-96 h-screen bg-white outline-none focus:outline-none justify-center">
-                    <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b bg-phone bg-cover object-cover bg-center h-fit w-full  ">
-                      <h3 className="title-call">{city.name} Guide</h3>
-                      <Link to="/neighbourhood" className="button-call red">
-                        <p className="icone-phone">
-                          <ImPhoneHangUp />
-                        </p>
-                      </Link>
-                      <Link to="" className="button-call green">
-                        <p className="icone-phone">
-                          <ImPhone />
-                        </p>
-                      </Link>
+                      <img src={imagePhone} alt="" width="500" />
                     </div>
                   </div>
                 </div>
               </div>
-              {/* FINNNNN */}
             </div>
           )}
           <br />

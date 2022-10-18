@@ -18,9 +18,9 @@ module.exports = {
         Crimson: ["Crimson Text", "serif"],
         Lato: ["Lato", "sans-serif"],
       },
-      backgroundImage: {
-        phone: "url('/public/images/phonecall.png')",
-      },
+      // backgroundImage: {
+      //   phone: "url('/public/images/phonecall.png')",
+      // },
     },
   },
   plugins: [],
