@@ -24,7 +24,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="h-screen bg-cover bg-gradient-to-b from-white to-cust-light-blue">
+    <div className="max-h-fit bg-cover bg-gradient-to-b from-white to-cust-light-blue pb-20">
       <Navigation />
       <MessageBox />
       <Routes>
