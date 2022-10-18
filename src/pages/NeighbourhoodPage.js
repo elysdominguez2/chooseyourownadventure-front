@@ -9,10 +9,14 @@ import imagePoint from "../img/Luke-point.png";
 export const NeighbourhoodPage = () => {
   const dispatch = useDispatch();
   const city = useSelector(selectCityById);
-  console.log("I am calling: ", city);
-  console.log("I am calling + neighb: ", city.neighbourhoods);
+  // console.log("I am calling: ", city);
+  // console.log("I am calling + neighb: ", city?.neighbourhoods);
 
-  const { id } = useParams();
+  // const { id } = useParams();
+
+  const idFromLocalStorage = localStorage.getItem("itinerary");
+  const parsed = JSON.parse(idFromLocalStorage);
+  const id = parseInt(parsed.city);
 
   useEffect(() => {
     dispatch(fetchCitiesById(id));
@@ -28,7 +32,7 @@ export const NeighbourhoodPage = () => {
         <img src={imagePoint} alt="" className="w-40  mr-20"></img>
       </div>
 
-      {city === null ? (
+      {!city || !id ? (
         "Loading..."
       ) : (
         <div className="flex flex-col items-center">
