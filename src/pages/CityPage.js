@@ -1,4 +1,3 @@
-// import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCitiesById } from "../store/cities/thunks";
 import { selectCityById } from "../store/cities/selectors";
@@ -26,20 +25,6 @@ export const CityPage = () => {
     setCall(!call);
   };
 
-  const handleClose = () => setCall(false);
-
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 700,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
-
   const [route] = useState(id);
   useEffect(() => {
     localStorage.setItem(
@@ -53,7 +38,7 @@ export const CityPage = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="text-xl py-3 text-center text-cust-dark-purple">
+    <div className="text-xl py-3 text-center text-cust-dark-purple h-screen mt-20 flex flex-col max-w-4xl m-auto">
       {city === null ? (
         "Loading..."
       ) : (
@@ -83,21 +68,21 @@ export const CityPage = () => {
           </button>
           {call && (
             <div>
-              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-gradient-to-t from-cust-light-blue">
                 <div className="relative  ">
                   <div className="border-0 rounded-lg shadow-lg relative w-96 bg-white outline-none focus:outline-none justify-center">
                     <div className=" p-6 border-t border-solid border-blueGray-200 rounded-b  ">
-                      <h3 className="title-call absolute text-white uppercase">
+                      <h3 className="title-call absolute text-white uppercase m-20">
                         {city.name} Guide
                       </h3>
                       <div className="flex absolute">
                         <Link to="/neighbourhood">
-                          <p className="icone-phone rounded-full p-5 bg-red-500 text-white">
+                          <p className="icone-phone rounded-full p-5 bg-red-500 text-white ml-20 mt-[420px]">
                             <ImPhoneHangUp />
                           </p>
                         </Link>
                         <Link to="">
-                          <p className="icone-phone rounded-full p-5 bg-green-600 text-white">
+                          <p className="icone-phone rounded-full p-5 bg-green-600 text-white ml-16 mt-[420px]">
                             <ImPhone />
                           </p>
                         </Link>

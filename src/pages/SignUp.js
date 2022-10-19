@@ -27,8 +27,8 @@ export const SignUp = () => {
 
   return (
     <div>
-      <div className=" flex flex-col justify-center items-center">
-        <h3 className="text-2xl py-8 text-center font-Lato font-semibold text-cust-dark-purple">
+      <div className=" flex flex-col items-center h-screen mt-36">
+        <h3 className="text-2xl mb-6 text-center font-Lato font-semibold text-cust-dark-purple">
           Sign Up
         </h3>
         <form

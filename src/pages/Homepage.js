@@ -2,7 +2,7 @@ import Start from "../components/Start";
 
 export const Homepage = () => {
   return (
-    <div className="mx-auto px-20  flex flex-col justify-center items-center">
+    <div className="mx-auto mt-32 flex flex-col items-center h-screen">
       <Start />
     </div>
   );
