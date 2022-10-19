@@ -13,8 +13,8 @@ function Start() {
   const token = useSelector(selectToken);
   return (
     <div className="max-w-2xl">
-      <div className=" flex flex-col justify-center items-center">
-        <h2 className=" text-6xl px-4  pt-20 pb-6 text-center font-Bebas text-cust-orange drop-shadow-lg shadow-cust-dark-purple ">
+      <div className=" flex flex-col items-center">
+        <h2 className=" text-6xl px-4 pb-6 text-center font-Bebas text-cust-orange drop-shadow-lg shadow-cust-dark-purple ">
           Choose your own Adventure
         </h2>
         <p className="text-4xl px-4 py-3 text-center font-Lato font-semibold text-cust-dark-purple">

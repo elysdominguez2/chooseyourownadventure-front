@@ -28,7 +28,7 @@ export const EndAndSharePage = () => {
   }
 
   return (
-    <div className="text-xl pb-10 text-cust-dark-purple max-w-4xl m-auto">
+    <div className="text-xl mt-20 text-cust-dark-purple max-w-4xl m-auto h-screen">
       {journeyInfo ? (
         <div>
           <div className="flex items-center justify-center">
@@ -54,7 +54,7 @@ export const EndAndSharePage = () => {
           <p className="mb-10 text-center">
             These are the points of interest that you visited
           </p>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center drop-shadow-xl shadow-cust-dark-purple">
             {journeyInfo.cityDetails.lat === null ||
             journeyInfo.cityDetails.lon === null ? (
               "Loading..."
@@ -67,7 +67,7 @@ export const EndAndSharePage = () => {
                 ]}
                 zoom={14}
                 scrollWheelZoom={false}
-                className="h-96 w-4/5"
+                className="h-96 w-4/5 "
               >
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -89,8 +89,13 @@ export const EndAndSharePage = () => {
               </MapContainer>
             )}
           </div>
-          <div>
-            <button onClick={copy}>Copy and share</button>
+          <div className="m-20 flex justify-center">
+            <button
+              onClick={copy}
+              className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-xl py-2 px-4 rounded"
+            >
+              Copy and share
+            </button>
           </div>
         </div>
       ) : (

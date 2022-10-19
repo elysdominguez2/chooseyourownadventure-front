@@ -3,7 +3,7 @@ import { fetchCitiesById } from "../store/cities/thunks";
 import { selectCityById } from "../store/cities/selectors";
 
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import imagePoint from "../img/Luke-point.png";
 
 export const NeighbourhoodPage = () => {
