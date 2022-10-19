@@ -68,12 +68,17 @@ export const PointsOfInterest = () => {
                       <Link
                         key={poi.id}
                         to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
-                        className="transition ease-in-out delay-150 text-xl px-4 py-2 uppercase text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
+                        className="transition ease-in-out delay-150 text-xl px-4 py-2 text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
                       >
                         <p className="mr-4 text-4xl">
                           <TbArrowBigRight />
                         </p>
-                        {poi.name}
+                        <p>
+                          {poi.question}
+                          <span className="  uppercase ml-1 font-semibold">
+                            {poi.name}
+                          </span>
+                        </p>
                       </Link>
                     );
                   })

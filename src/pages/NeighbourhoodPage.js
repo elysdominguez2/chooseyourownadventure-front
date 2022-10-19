@@ -35,10 +35,10 @@ export const NeighbourhoodPage = () => {
       {!city || !id ? (
         "Loading..."
       ) : (
-        <div className="flex flex-col items-center">
+        <div>
           {city.neighbourhoods.map((n) => (
-            <div className="nb-box" key={n.id}>
-              <h3 className="m-10">{n.name}</h3>
+            <div className="nb-box flex flex-col items-center" key={n.id}>
+              <h3 className="m-10">{n.question}</h3>
               <img
                 src={n.imageUrl}
                 alt=""

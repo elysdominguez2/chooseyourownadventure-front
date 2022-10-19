@@ -4,7 +4,7 @@ import { selectJourneyInfo } from "../store/cities/selectors";
 import { useEffect } from "react";
 import imageFinish from "../img/Luke-finish.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Link } from "react-router-dom";
+import { AiTwotoneHeart } from "react-icons/ai";
 
 export const EndAndSharePage = () => {
   const dispatch = useDispatch();
@@ -92,9 +92,12 @@ export const EndAndSharePage = () => {
           <div className="m-20 flex justify-center">
             <button
               onClick={copy}
-              className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-xl py-2 px-4 rounded"
+              className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-xl py-2 px-4 rounded flex items-center"
             >
-              Copy and share
+              share
+              <span className="ml-1 text-red-500">
+                <AiTwotoneHeart />
+              </span>
             </button>
           </div>
         </div>

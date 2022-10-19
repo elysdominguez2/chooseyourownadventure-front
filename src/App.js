@@ -15,18 +15,12 @@ import {
   PointsOfInterest,
   EndAndSharePage,
 } from "./pages";
-import { fetchCitiesById } from "./store/cities/thunks";
 
 function App() {
   const dispatch = useDispatch();
 
-  const idFromLocalStorage = localStorage.getItem("itinerary");
-  const parsed = JSON.parse(idFromLocalStorage);
-  const id = parseInt(parsed.city);
-
   useEffect(() => {
     dispatch(getUserWithStoredToken());
-    // dispatch(fetchCitiesById(id));
   }, [dispatch]);
 
   return (

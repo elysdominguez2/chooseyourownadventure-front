@@ -35,26 +35,33 @@ export const NeighbourhoodPageById = () => {
           <Map lat={neighbourhood.lat} lon={neighbourhood.lon} />
           <p className=" text-center p-6">{neighbourhood.description}</p>
 
-          <div className="flex">
-            <img src={imageMap} alt="" className="w-40  mr-20"></img>
+          <div className="flex items-center">
+            <img src={imageMap} alt="" className="w-40 max-h-72 "></img>
             <div>
               <h3 className="p-4 text-2xl">
                 What point of interest would you like to visit
               </h3>
               {neighbourhood.pointsOfInterests.map((poi) => {
                 return (
-                  <Link
-                    key={poi.id}
-                    to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
-                    className="transition ease-in-out delay-150 text-xl px-4 py-2 uppercase text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
-                  >
-                    <p className="mr-4 text-4xl">
-                      {" "}
-                      <TbArrowBigRight />
-                    </p>
+                  <div>
+                    <Link
+                      key={poi.id}
+                      to={`/pointsofinterest/${neighbourhood.id}/${poi.id}`}
+                      className="transition ease-in-out delay-150 text-xl px-4 py-2  text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
+                    >
+                      <p className="mr-4 text-4xl">
+                        {" "}
+                        <TbArrowBigRight />
+                      </p>
 
-                    <p>{poi.name}</p>
-                  </Link>
+                      <p>
+                        {poi.question}
+                        <span className="  uppercase ml-1 font-semibold">
+                          {poi.name}
+                        </span>
+                      </p>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
