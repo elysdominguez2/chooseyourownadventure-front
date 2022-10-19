@@ -38,7 +38,7 @@ export const NeighbourhoodPage = () => {
         <div>
           {city.neighbourhoods.map((n) => (
             <div className="nb-box flex flex-col items-center" key={n.id}>
-              <h3 className="m-10">{n.question}</h3>
+              <p>{n.question}</p>
               <img
                 src={n.imageUrl}
                 alt=""
@@ -47,7 +47,7 @@ export const NeighbourhoodPage = () => {
               />
               <Link
                 to={`/neighbourhood/${n.id}`}
-                className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg  py-3  px-4 rounded uppercase"
+                className=" bg-yellow-500 hover:bg-yellow-400 border-b-4 border-yellow-700 hover:border-yellow-500 text-white text-center text-lg  py-3  px-4 mb-6 rounded uppercase"
               >
                 Go to {n.name}
               </Link>
