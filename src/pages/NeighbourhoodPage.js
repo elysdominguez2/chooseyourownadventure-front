@@ -23,7 +23,7 @@ export const NeighbourhoodPage = () => {
   }, [dispatch, id]);
 
   return (
-    <div className=" text-xl py-3 p-10  text-center text-cust-dark-purple ">
+    <div className=" text-xl py-3 p-10  text-center text-cust-dark-purple h-screen xl:mt-20">
       <div className="flex max-w-2xl m-auto">
         <p className="mt-20 ml-20 text-left text-2xl">
           Now you are responsible to have a good adventure with your friends and
@@ -35,10 +35,10 @@ export const NeighbourhoodPage = () => {
       {!city || !id ? (
         "Loading..."
       ) : (
-        <div>
+        <div className="flex flex-wrap justify-center ">
           {city.neighbourhoods.map((n) => (
             <div className="nb-box flex flex-col items-center" key={n.id}>
-              <p>{n.question}</p>
+              <p className="pl-10">{n.question}</p>
               <img
                 src={n.imageUrl}
                 alt=""

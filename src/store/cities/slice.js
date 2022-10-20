@@ -16,6 +16,8 @@ export const citiesSlice = createSlice({
     citiesFetched: (state, action) => {
       state.loading = false;
       state.cities = action.payload;
+      state.cityDetails = null;
+      state.journeyInfo = null;
     },
     cityFetchedById: (state, action) => {
       state.loading = false;

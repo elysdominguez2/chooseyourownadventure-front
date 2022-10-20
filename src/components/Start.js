@@ -18,7 +18,7 @@ function Start() {
           Choose your own Adventure
         </h2>
         <p className="text-4xl px-4 py-3 text-center font-Lato font-semibold text-cust-dark-purple">
-          A TURISM APP
+          A TOURISM APP
         </p>
         <p className="text-2xl text-center font-Lato text-cust-dark-purple">
           where you are{" "}

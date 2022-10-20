@@ -53,12 +53,12 @@ export const Navigation = () => {
               </li>
               <li className="nav-item">
                 <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white  drop-shadow-lg shadow-black">
-                  {token ? (
+                  {token && user ? (
                     <div className="flex">
                       <p className="text-lg text-yellow-300">
                         <MdWavingHand />
                       </p>
-                      <p className="mr-4 text-xl">Hello {user.name} </p>
+                      <p className="mr-4 text-xl">Hello {user.name}</p>
                       <button
                         onClick={() => dispatch(logOut())}
                         className="text-lg hover:opacity-75"
