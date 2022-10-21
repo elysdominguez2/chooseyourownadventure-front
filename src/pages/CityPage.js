@@ -10,6 +10,8 @@ import Map from "../components/Map";
 import { ImPhoneHangUp } from "react-icons/im";
 import { ImPhone } from "react-icons/im";
 import imagePhone from "../img/phonecall.png";
+import imagePhoneIn from "../img/Luke-phone-in.png";
+import "./style.css";
 
 export const CityPage = () => {
   const dispatch = useDispatch();
@@ -57,6 +59,9 @@ export const CityPage = () => {
             guy.
           </p>
           <p>So, you have to decide</p>
+          <div>
+            <img src={imagePhoneIn} alt="" className="w-80 luke absolute"></img>
+          </div>
           <button
             onClick={() => {
               play();

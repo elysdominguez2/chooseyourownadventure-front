@@ -1,0 +1,15 @@
+.luke {
+  animation-name: slide-right;
+  animation-duration: 5s;
+  left: -350px;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-right {
+  from {
+    left: -250px;
+  }
+  to {
+    left: -100px;
+  }
+}
