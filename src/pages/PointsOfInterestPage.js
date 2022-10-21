@@ -51,7 +51,7 @@ export const PointsOfInterest = () => {
           <p className=" text-center p-6">{poi.description}</p>
           <br />
 
-          <div className="flex">
+          <div className="flex items-center">
             <div>
               <p>This place is amazing, no?</p>
               <p>
@@ -97,7 +97,7 @@ export const PointsOfInterest = () => {
                 </Link>
               </div>
             </div>
-            <img src={imagePosition} alt="" className="w-72"></img>
+            <img src={imagePosition} alt="" className="w-72 max-h-72"></img>
           </div>
           <div className="ml-6 mt-10">
             <Link
