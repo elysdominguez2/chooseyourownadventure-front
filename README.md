@@ -1,6 +1,6 @@
 # Choose your own adventure App
 
-(https://res.cloudinary.com/dfwupsfxv/image/upload/v1666549267/cyoa_q9tovx.png)
+![Image text](https://res.cloudinary.com/dfwupsfxv/image/upload/v1666549267/cyoa_q9tovx.png)
 
 ## Welcome!
 
