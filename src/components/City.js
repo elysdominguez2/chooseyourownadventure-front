@@ -25,12 +25,21 @@ function City() {
           {cities.map((city) => (
             <div
               key={city.id}
-              className="transition ease-in-out delay-150 text-xl px-4 py-2 uppercase text-cust-orange hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300 drop-shadow-lg shadow-cust-dark-purple flex flex-row "
+              className="text-xl px-4 py-2 uppercase text-cust-orange drop-shadow-lg shadow-cust-dark-purple flex flex-row "
             >
               <p className="mr-4 text-4xl">
                 <TbArrowBigRight />
               </p>
-              <Link to={`/city/${city.id}`}>{city.name}</Link>
+              {city.id === 3 || city.id === 4 || city.id === 5 ? (
+                <p>{city.name} - coming soon</p>
+              ) : (
+                <Link
+                  to={`/city/${city.id}`}
+                  className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:text-cust-aqua duration-300"
+                >
+                  {city.name}
+                </Link>
+              )}
             </div>
           ))}
         </div>
