@@ -1,6 +1,7 @@
 # Choose your own adventure App
 
-![Image text](https://res.cloudinary.com/dfwupsfxv/image/upload/v1666549267/cyoa_q9tovx.png)
+![Image text](https://res.cloudinary.com/dfwupsfxv/image/upload/v1667986608/Homepage1_qgj57o.png)
+![Image text](https://res.cloudinary.com/dfwupsfxv/image/upload/v1667986608/Homepage2_gv9qso.png)
 
 ## Welcome!
 
@@ -23,4 +24,4 @@ I used [React](https://reactjs.org/) framework with [Redux](https://es.redux.js.
 
 ### Backend tools
 
-I used [Express](https://expressjs.com/es/) as framework. Also I used [Sequelize](https://sequelize.org/) and [PostgreSQL](https://www.postgresql.org/) for the models
+I used [Express](https://expressjs.com/es/) as framework. Also I used [Sequelize](https://sequelize.org/) and [PostgreSQL](https://www.postgresql.org/) for the models.
