@@ -7,7 +7,7 @@ import {
 } from "./slice";
 import { selectCityById } from "./selectors";
 
-const API_URL = `http://localhost:4000`;
+const API_URL = `https://choose-own-adventure.onrender.com/`;
 
 export const fetchCities = () => async (dispatch, getState) => {
   try {
