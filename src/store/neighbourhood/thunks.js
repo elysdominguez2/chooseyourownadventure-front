@@ -1,7 +1,7 @@
 import axios from "axios";
 import { startLoading, neighbourhoodFetchedById } from "./slice";
 
-const API_URL = `http://localhost:4000`;
+const API_URL = `https://choose-own-adventure.onrender.com/`;
 
 //Fetch Neighbourhood By Id
 export const fetchNeighbourhoodsById = (id) => async (dispatch, getState) => {
